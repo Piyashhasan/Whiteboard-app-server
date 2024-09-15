@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const drawingSchema = new Schema(
   {
-    type: {
+    elementType: {
       type: String,
       required: true,
       enum: ["line", "rectangle", "circle", "triangle", "text"],
@@ -11,6 +11,8 @@ const drawingSchema = new Schema(
     coordinates: [[Number]],
     startX: Number,
     startY: Number,
+    endX: Number,
+    endY: Number,
     width: Number,
     height: Number,
     radius: Number,

@@ -77,10 +77,12 @@ exports.updateSingleDrawing = async (req, res) => {
   try {
     const drawingId = req.params?.id;
     const updateData = req.body;
+
     const updateDrawing = await Drawing.findByIdAndUpdate(
       drawingId,
       updateData
     );
+
     if (updateDrawing) {
       res.status(200).json({
         status: true,
