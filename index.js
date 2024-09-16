@@ -15,7 +15,9 @@ app.use(express.urlencoded({ extended: true }));
 // --- DATA BASE connection ---
 const dbConnection = async () => {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/WhiteBoardDB");
+    const connection = await mongoose.connect(
+      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.dba67.mongodb.net/WhiteBoard?retryWrites=true&w=majority&appName=Cluster0`
+    );
     console.log("Successfully DB connected...!");
   } catch (err) {
     console.log("DB Connection Failed...!");
